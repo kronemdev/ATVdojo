@@ -100,7 +100,98 @@ for(int i = 0; i <= biblioteca.Length; i++)
     }
 }
 
+double somaTotal = 0;
+double[] preco = new double[quantidadeJogo];
 
+for (int j = 0; j < biblioteca.Length; j++)
+{
+    Console.WriteLine($"Quanto você pagou {biblioteca[j]}?");
+    preco[j] = double.Parse(Console.ReadLine());
+    somaTotal += preco[j];
+
+}
+
+for (int x = 0; x < preco.Length; x++)
+{
+    Console.WriteLine($"Quanto você pagou em {biblioteca[x]}? R$ {preco[x]:F2}");
+}
+
+Console.WriteLine($"Total Gasto:{somaTotal}");
+Console.WriteLine($"Média por compra: {somaTotal / biblioteca.Length:F2}");
+Console.WriteLine($"O jogo mais caro é {preco.Max()}");
+int totalDeHoras = 0;
+
+int[] horasJogadas = new int[ quantidadeJogo ];
+for (int x = 0; x < biblioteca.Length; x++)
+{
+    Console.WriteLine($"Quantas horas você jogou {biblioteca[x]}");
+    horasJogadas[x] = int.Parse(Console.ReadLine());
+    totalDeHoras += horasJogadas[x];
+}
+
+
+string jogoMaisJogado = "";
+int horasMaisJogadas = 0;
+int indiceMaior = 0;
+int horasMenosJogados = 0;
+int indiceMenor = 0;
+string jogoMenos = " ";
+
+for (int x = 0; x < preco.Length; x++)
+{
+    Console.WriteLine($"Quantas horas você jogou {biblioteca[x]} ?  {horasJogadas[x]}h");
+
+    //if (horasJogadas[x] > horasMaisJogadas)
+    //{
+    //    horasMaisJogadas = horasJogadas[x];
+    //    jogoMaisJogado = biblioteca[x];
+    //    indiceMaior = x;
+    //}
+
+    //if (horasJogadas[x] < horasMenosJogados)
+    //{
+    //    horasMenosJogados = horasJogadas[x];
+    //    jogoMenos = biblioteca[x];
+    //    indiceMenor = x;
+
+    //}
+
+}
+
+for (int x = 0; x < preco.Length; x++)
+{
+
+    if (horasJogadas[x] > horasMaisJogadas)
+    {
+        horasMaisJogadas = horasJogadas[x];
+        jogoMaisJogado = biblioteca[x];
+        indiceMaior = x;
+    }
+
+    if (horasJogadas[x] < horasMenosJogados)
+    {
+        horasMenosJogados = horasJogadas[x];
+        jogoMenos = biblioteca[x];
+        indiceMenor = x;
+
+    }
+}
+
+
+Console.WriteLine($"Total de Horas: {totalDeHoras}h");
+Console.WriteLine($"Mais Jogado: {jogoMaisJogado} {horasMaisJogadas}h");
+Console.WriteLine($"Jogo Encostado {horasJogadas[indiceMenor]}: ");
+Console.WriteLine($"- {biblioteca[indiceMenor]}");
+
+
+/*
+ * Jose Henrique
+ * Fábio Gomes
+ * Lucas Santos
+ * Nicolas Kronemberger
+ * Washigton Willian
+ * 
+ */
 
 
 
